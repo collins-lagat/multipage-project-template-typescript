@@ -26,7 +26,17 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png|jpeg|svg|gif)$/,
+				test: /\.(png|jpe?g|svg|gif)$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						outputPath: 'assets'
+					}
+				}
+			},
+			{
+				test: /\.(eot|svg|ttf|woff|woff2)$/,
 				use: {
 					loader: 'file-loader',
 					options: {
