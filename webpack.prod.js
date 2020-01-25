@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 const merge = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const common = require('./webpack.common')
+const HTMLWebpackPluginWrapper = require('./webpack.loadHTML')
 
 module.exports = merge(common, {
 	mode: 'production',
@@ -36,14 +36,7 @@ module.exports = merge(common, {
 		minimizer: [
 			new OptimizeCssAssetsPlugin(),
 			new TerserPlugin(),
-			new HtmlWebpackPlugin({
-				template: './src/index.html',
-				minify: {
-					removeAttributeQuotes: true,
-					collapseWhitespace: true,
-					removeComments: true
-				}
-			})
+			...new HTMLWebpackPluginWrapper('./src', true).templates
 		]
 	},
 	plugins: [
