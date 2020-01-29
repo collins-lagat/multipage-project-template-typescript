@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const common = require('./webpack.common')
-const HTMLWebpackPluginWrapper = require('./webpack.loadHTML')
+const HTMLWebpackPluginWrapper = require('./webpack.html')
 
 module.exports = merge(common, {
 	mode: 'production',

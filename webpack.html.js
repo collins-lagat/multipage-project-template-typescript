@@ -47,6 +47,7 @@ class HTMLWebpackPluginWrapper {
 				this.htmlFiles.push(
 					new HtmlWebpackPlugin({
 						template: `${root}/${file}`,
+						filename: file,
 						...this.config
 					})
 				)

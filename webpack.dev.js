@@ -1,7 +1,7 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
-const HTMLWebpackPluginWrapper = require('./webpack.loadHTML')
+const HTMLWebpackPluginWrapper = require('./webpack.html')
 
 module.exports = merge(common, {
 	mode: 'development',
